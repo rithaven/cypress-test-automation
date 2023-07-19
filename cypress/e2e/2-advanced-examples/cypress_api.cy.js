@@ -4,7 +4,7 @@ context('Cypress APIs', () => {
 
   context('Cypress.Commands', () => {
     beforeEach(() => {
-      cy.visit('http://localhost:8080/cypress-api')
+      cy.visit('/cypress-api')
     })
 
     // https://on.cypress.io/custom-commands
