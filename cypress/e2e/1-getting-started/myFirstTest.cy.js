@@ -107,7 +107,7 @@ describe("My First Test", () => {
   });
   
   it('types into an email fiel', () =>{
-    cy.visit('https://Example.cypress.io/commands/actions')
+    cy.visit('/commands/actions')
     cy.findByPlaceholderText('Email').type('test@email.com')
     // eslint-disable-next-line cypress/no-unnecessary-waiting
     cy.wait(2000).then(() =>{
