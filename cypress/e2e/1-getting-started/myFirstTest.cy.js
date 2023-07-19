@@ -93,9 +93,9 @@ describe("My First Test", () => {
   });
   
   it('renders a section with the correct elements', () => {
-    cy.get('.home-landing', { timeout: 10000 }).within(() => {
-      cy.get('h2', { timeout: 10000 }).should('exist');
-      cy.get('p', { timeout: 10000 }).should('exist');
+    cy.get('.container').eq(2).within(() => {
+      cy.get('h4').should('exist');
+      cy.get('p').should('exist');
     });
   });
   
