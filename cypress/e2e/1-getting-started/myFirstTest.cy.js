@@ -8,7 +8,7 @@ const token ='abcd123';
 
 describe("My First Test", () => {
   beforeEach(() =>{
-    cy.visit('/')
+    cy.visit('/commands/actions')
   })
 
   it('triggers a popover on click', () =>{
