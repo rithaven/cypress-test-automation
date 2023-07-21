@@ -8,7 +8,7 @@ const token ='abcd123';
 
 describe("My First Test", () => {
   beforeEach(() =>{
-    cy.visit('/commands/actions')
+    cy.visit('https://Example.cypress.io/commands/actions')
   })
 
   it('triggers a popover on click', () =>{
@@ -42,12 +42,12 @@ describe("My First Test", () => {
     cy.getLocalStorage('token').should('eq', token )
   })
   it('overwrite the type command by using sensitive characters', () =>{
-    cy.visit('/commands/actions')
+    cy.visit('https://Example.cypress.io/commands/actions')
     cy.findByPlaceholderText('Email').type('test@email.com')
     cy.findByPlaceholderText('Email').type('test@email.com', { sensitive: true})
   })
   it('uses fixture daat in a network request',function(){
-    cy.visit('/commands/network-requests')
+    cy.visit('https://Example.cypress.io/commands/network-requests')
     cy.intercept('GET','**/comments/*', this.data).as('getComment')
     cy.get('.network-btn').click()
     cy.wait('@getComment').then((res) =>{
