@@ -107,7 +107,7 @@ describe("My First Test", () => {
   });
   
   it('types into an email fiel', () =>{
-    cy.visit('/commands/actions')
+    cy.visit('https://Example.cypress.io/commands/actions')
     cy.findByPlaceholderText('Email').type('test@email.com')
     // eslint-disable-next-line cypress/no-unnecessary-waiting
     cy.wait(2000).then(() =>{
@@ -122,33 +122,33 @@ describe("My First Test", () => {
   })
   
   it('shows an active class for the current page', () =>{
-    cy.visit('/commands/actions')
+    cy.visit('https://Example.cypress.io/commands/actions')
     cy.get('.dropdown-menu').find('li').eq(2).should('have.class', 'active')
   })
   
   it('should not have an active class on inactive pages', () =>{
-    cy.visit('/commands/actions')
+    cy.visit('https://Example.cypress.io/commands/actions')
     cy.get('.dropdown-menu').find('li').first().should('not.have.class', 'active').find('a').should('have.attr', 'href', '/commands/querying')
   })
   it('links to the actions page correctly', () =>{
-    cy.visit('/commands/actions')
+    cy.visit('https://Example.cypress.io/commands/actions')
     cy.findAllByText('Actions').first().click({force:true})
     cy.url().should('include', 'commands/actions')
   })
   
   it('lets you type in an input field', () =>{
-    cy.visit('/commands/actions')
+    cy.visit('https://Example.cypress.io/commands/actions')
     cy.findByPlaceholderText('Email').type('Test').should('have.value', 'Test')
   })
   
   it('lets you clear an input field', () => {
-    cy.visit('/commands/actions')
+    cy.visit('https://Example.cypress.io/commands/actions')
     cy.findByLabelText('Describe:').type('Test description').should('have.value', 'Test description')
       .clear().should('have.value', '')
   })
   
   it('lets you check a checkbox', () =>{
-    cy.visit('/commands/actions')
+    cy.visit('https://Example.cypress.io/commands/actions')
     cy.get('.action-checkboxes [type="checkbox"]').eq(1).check({force: true}).should('be.checked')
   
   })
