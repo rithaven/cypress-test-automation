@@ -8,7 +8,7 @@ const token ='abcd123';
 
 describe("My First Test", () => {
   beforeEach(() =>{
-    cy.visit('https://Example.cypress.io/commands/actions')
+    cy.visit('/commands/actions')
   })
 
   it('triggers a popover on click', () =>{
@@ -42,12 +42,12 @@ describe("My First Test", () => {
     cy.getLocalStorage('token').should('eq', token )
   })
   it('overwrite the type command by using sensitive characters', () =>{
-    cy.visit('https://Example.cypress.io/commands/actions')
+    cy.visit('/commands/actions')
     cy.findByPlaceholderText('Email').type('test@email.com')
     cy.findByPlaceholderText('Email').type('test@email.com', { sensitive: true})
   })
   it('uses fixture daat in a network request',function(){
-    cy.visit('https://Example.cypress.io/commands/network-requests')
+    cy.visit('/commands/network-requests')
     cy.intercept('GET','**/comments/*', this.data).as('getComment')
     cy.get('.network-btn').click()
     cy.wait('@getComment').then((res) =>{
@@ -107,7 +107,7 @@ describe("My First Test", () => {
   });
   
   it('types into an email fiel', () =>{
-    cy.visit('https://Example.cypress.io/commands/actions')
+    cy.visit('/commands/actions')
     cy.findByPlaceholderText('Email').type('test@email.com')
     // eslint-disable-next-line cypress/no-unnecessary-waiting
     cy.wait(2000).then(() =>{
@@ -122,7 +122,7 @@ describe("My First Test", () => {
   })
   
   it('shows an active class for the current page', () =>{
-    cy.visit('https://Example.cypress.io/commands/actions')
+    cy.visit('/commands/actions')
     cy.get('.dropdown-menu').find('li').eq(2).should('have.class', 'active')
   })
   
@@ -131,24 +131,24 @@ describe("My First Test", () => {
     cy.get('.dropdown-menu').find('li').first().should('not.have.class', 'active').find('a').should('have.attr', 'href', '/commands/querying')
   })
   it('links to the actions page correctly', () =>{
-    cy.visit('https://Example.cypress.io/commands/actions')
+    cy.visit('/commands/actions')
     cy.findAllByText('Actions').first().click({force:true})
     cy.url().should('include', 'commands/actions')
   })
   
   it('lets you type in an input field', () =>{
-    cy.visit('https://Example.cypress.io/commands/actions')
+    cy.visit('/commands/actions')
     cy.findByPlaceholderText('Email').type('Test').should('have.value', 'Test')
   })
   
   it('lets you clear an input field', () => {
-    cy.visit('https://Example.cypress.io/commands/actions')
+    cy.visit('/commands/actions')
     cy.findByLabelText('Describe:').type('Test description').should('have.value', 'Test description')
       .clear().should('have.value', '')
   })
   
   it('lets you check a checkbox', () =>{
-    cy.visit('https://Example.cypress.io/commands/actions')
+    cy.visit('/commands/actions')
     cy.get('.action-checkboxes [type="checkbox"]').eq(1).check({force: true}).should('be.checked')
   
   })
